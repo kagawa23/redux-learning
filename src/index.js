@@ -45,6 +45,6 @@ ReactDom.render(
                     <Route path='/:location' component={test }></Route>
                 </Switch>
             </div>
-        </BrowserRouter>
+        </BrowserRouter> 
     </Provider>, document.getElementById('root'));
 
