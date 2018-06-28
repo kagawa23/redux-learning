@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './app';
-import { createStore } from 'redux';
-import { counter,addGUN, removeGUN } from './index.redux'
+import { createStore, applyMiddleware, compose } from 'redux';
+import { counter,addGUN, removeGUN, addGunAsync } from './index.redux'
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-const store = createStore(counter);
+const reduxDevTool = window.devToolsExtension ? window.devToolsExtension:()=>{};
+const store = createStore(counter, compose(applyMiddleware(thunk), reduxDevTool()));
 
-function render(){
-   ReactDom.render(<App store={store} addGun={addGUN} removeGun={removeGUN}/>, document.getElementById('root'));
-}
- render();
-store.subscribe(render);
+ReactDom.render(
+<Provider store={store}>
+    <App/>
+</Provider>, document.getElementById('root'));
+
