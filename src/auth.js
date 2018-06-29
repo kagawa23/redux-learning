@@ -13,7 +13,7 @@ import { Redirect } from "react-router-dom";
 )
 class Auth extends React.Component {
 componentDidMount(){
-    this.props.FetchUserRequest();
+   // this.props.FetchUserRequest();
 }
   render() {
     const { auth, LoginAction } = this.props;
