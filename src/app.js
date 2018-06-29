@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addGUN,addGunAsync,removeGUN} from './index.redux'
+import { LogOutAction } from './auth.redux';
 
-const mapStateToProps = (state) => {
-    return { num: state}
+const mapStateToProps = ({counter}) => {
+    return { num: counter}
 }
 
 const actionCreator = { addGUN,addGunAsync,removeGUN}
